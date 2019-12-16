@@ -1,0 +1,22 @@
+name: 'Golang Builder'
+description: 'x6a golang builder'
+author: 'x6a'
+branding:
+  icon: 'activity'
+  color: 'gray-dark'
+
+inputs:
+  cmd:
+    description: 'command to execute'
+    required: true
+  directory:
+    description: 'working directory'
+    required: false
+    default: '.'
+
+runs:
+  using: 'docker'
+  image: 'docker://x6adev/golang-builder:latest'
+  args:
+    - ${{ inputs.cmd }}
+    - ${{ inputs.directory }}
