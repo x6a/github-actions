@@ -9,14 +9,9 @@ inputs:
   cmd:
     description: 'command to execute'
     required: true
-  directory:
-    description: 'working directory'
-    required: false
-    default: '.'
 
 runs:
   using: 'docker'
   image: 'docker://x6adev/golang-builder:latest'
   args:
     - ${{ inputs.cmd }}
-    - ${{ inputs.directory }}
